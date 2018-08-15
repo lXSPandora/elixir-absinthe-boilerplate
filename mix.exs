@@ -41,6 +41,7 @@ defmodule Elixirblog.Mixfile do
       {:cowboy, "~> 1.0"},
       {:absinthe_ecto, "~> 0.1.0"},
       {:absinthe_plug, "~> 1.3.0"},
+      {:bcrypt_elixir, "~> 1.0"},
     ]
   end
 
