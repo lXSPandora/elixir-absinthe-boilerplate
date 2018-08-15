@@ -7,6 +7,7 @@ defmodule Elixirblog.Account.User do
     field :email, :string
     field :name, :string
     field :password, :string
+    field :active, :boolean, default: true
 
     timestamps()
   end
@@ -14,7 +15,7 @@ defmodule Elixirblog.Account.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name, :email, :password])
-    |> validate_required([:name, :email, :password])
+    |> cast(attrs, [:name, :email, :password, :active])
+    |> validate_required([:name, :email, :password, :active])
   end
 end
