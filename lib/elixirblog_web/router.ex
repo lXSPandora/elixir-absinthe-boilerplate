@@ -1,11 +1,18 @@
 defmodule ElixirblogWeb.Router do
   use ElixirblogWeb, :router
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  pipeline :graphql do
+    plug(:accepts, ["json"])
   end
 
-  scope "/api", ElixirblogWeb do
-    pipe_through :api
+  scope "/" do
+    pipe_through(:graphql)
+
+    forward("/graphql", Absinthe.Plug, schema: ElixirblogWeb.Schema)
+
+    if Mix.env() == :dev do
+      forward("/graphiql", Absinthe.Plug.GraphiQL, schema: ElixirblogWeb.Schema)
+    end
   end
+
 end
