@@ -7,6 +7,7 @@ defmodule Elixirblog.Feed.Post do
     field :description, :string
     field :title, :string
     field :user, :string
+    field :active, :boolean
 
     timestamps()
   end
@@ -14,7 +15,7 @@ defmodule Elixirblog.Feed.Post do
   @doc false
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:user, :title, :description])
-    |> validate_required([:user, :title, :description])
+    |> cast(attrs, [:user, :title, :description, :active])
+    |> validate_required([:user, :title, :description, :active])
   end
 end
