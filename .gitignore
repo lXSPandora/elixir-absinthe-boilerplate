@@ -1,3 +1,4 @@
+
 # App artifacts
 /_build
 /db
@@ -14,3 +15,5 @@ erl_crash.dump
 # secrets files as long as you replace their contents by environment
 # variables.
 /config/*.secret.exs
+
+.elixir_ls/
