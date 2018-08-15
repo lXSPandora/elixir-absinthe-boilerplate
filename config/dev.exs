@@ -41,6 +41,6 @@ config :elixirblog, Elixirblog.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "elixirblog_dev",
+  database: "elixirblog",
   hostname: "localhost",
   pool_size: 10
