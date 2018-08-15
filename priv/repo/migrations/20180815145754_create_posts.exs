@@ -6,6 +6,7 @@ defmodule Elixirblog.Repo.Migrations.CreatePosts do
       add :user, :string
       add :title, :string
       add :description, :string
+      add :active, :boolean, default: true
 
       timestamps()
     end
