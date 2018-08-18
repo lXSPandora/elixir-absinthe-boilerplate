@@ -8,4 +8,8 @@ defmodule Elixirblog.UserType do
     field(:email, :string)
     field(:name, :string)
   end
+
+  object :auth do
+    field(:token, :string)
+  end
 end
