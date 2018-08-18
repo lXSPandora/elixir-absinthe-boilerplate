@@ -6,6 +6,11 @@ defmodule ElixirblogWeb.Schema do
   import_types(Elixirblog.UserType)
 
   query do
+    @desc "Gets the logged user"
+    field :me, :user do
+      resolve(&UserResolvers.me/2)
+    end
+
     @desc "Gets one user"
     field :user, :user do
       arg(:id, non_null(:id))
@@ -19,6 +24,14 @@ defmodule ElixirblogWeb.Schema do
   end
 
   mutation do
+    @desc "Logs in the user"
+    field :login, :auth do
+      arg(:email, non_null(:string))
+      arg(:password, non_null(:string))
+
+      resolve(&UserResolvers.login/3)
+    end
+
     @desc "Insert user"
     field :register, :user do
       arg(:email, non_null(:string))
