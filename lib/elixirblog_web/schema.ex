@@ -33,7 +33,7 @@ defmodule ElixirblogWeb.Schema do
     end
 
     @desc "Insert user"
-    field :register, :user do
+    field :register, :auth do
       arg(:email, non_null(:string))
       arg(:name, non_null(:string))
       arg(:password, non_null(:string))
