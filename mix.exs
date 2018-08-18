@@ -42,6 +42,7 @@ defmodule Elixirblog.Mixfile do
       {:absinthe_ecto, "~> 0.1.0"},
       {:absinthe_plug, "~> 1.3.0"},
       {:bcrypt_elixir, "~> 1.0"},
+      {:json_web_token, "~> 0.2"}
     ]
   end
 
