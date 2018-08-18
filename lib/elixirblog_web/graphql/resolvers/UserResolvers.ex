@@ -41,17 +41,18 @@ defmodule Elixirblog.UserResolvers do
   def registerEmail(_parent, args, _info) do
     query = from u in "users",
           where: u.email == ^args.email,
-          select: u.password
+          select: u.email
     case Repo.one(query) do
       nil ->
         case Account.create_user(args) do
-          {:ok, user} ->
-            {:ok, user}
+          {:ok, _user} ->
+            token = JsonWebToken.sign(%{email: args.email}, %{key: "gZH75aKtMN3Yj0iPS4hcgUuTwjAzZr9C"})
+            {:ok, %{token: "Bearer #{token}"}}
           _error ->
             {:error, "Something went wrong while we create the user"}
         end
       _user ->
-        {:error, "This email is already registered on the database"}
+        {:error, "This email is already registered on the platform"}
     end
   end
 end
