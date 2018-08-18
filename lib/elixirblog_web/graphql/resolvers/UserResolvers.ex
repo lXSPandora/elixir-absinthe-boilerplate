@@ -33,7 +33,7 @@ defmodule Elixirblog.UserResolvers do
             {:error, "Invalid email or password"}
           true ->
             token = JsonWebToken.sign(%{email: email}, %{key: "gZH75aKtMN3Yj0iPS4hcgUuTwjAzZr9C"})
-            {:ok, %{token: token}}
+            {:ok, %{token: "Bearer #{token}"}}
         end
     end
   end
